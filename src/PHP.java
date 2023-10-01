@@ -4,7 +4,7 @@ public class PHP extends Planeta {
 	{
 		this.grade = grade;
 		this.nome = "PHP";
-		this.velocidade = 2;
+		this.velocidade = 1;
 		this.numeroDeOrbita = 4;
 		this.numeroDeTrajetoria = 8*4;
 		this.posicaoQuadrangular = 4;

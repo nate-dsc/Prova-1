@@ -4,7 +4,7 @@ public class CMaisMais extends Planeta {
 	{
 		this.grade = grade;
 		this.nome = "C++";
-		this.velocidade = 2;
+		this.velocidade = 1;
 		this.numeroDeOrbita = 6;
 		this.numeroDeTrajetoria = 8*6;
 		this.posicaoQuadrangular = 6;

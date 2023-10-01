@@ -113,27 +113,26 @@ public class Sistema {
 	}
 
 	//Receber e registrar o tempo inserido:
-	private void registrarTempo(int t)
+	private void registrarTempoTotal()
 	{
-		this.tempoInserido = t;
 		this.tempoTotal += this.tempoInserido;
 	}
 	
 	public void pedirTempo()
 	{
-		int t = 0;
 		do
 		{
+			tempoInserido = 0;
 			System.out.println("Tempo: ");
-			t = scan.nextInt();
+			tempoInserido = scan.nextInt();
 			System.out.println("");
-			if(t < 0)
+			if(tempoInserido < 0)
 			{
 				System.out.println("Ainda nao inventamos uma maquina de viajar no tempo.");
 				System.out.println("Insira um valor positivo.");
 			}
-		}while(t < 0);
-		registrarTempo(t);
+		}while(tempoInserido < 0);
+		registrarTempoTotal();
 	}
 
 	//Executar rodada:

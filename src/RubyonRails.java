@@ -4,7 +4,7 @@ public class RubyonRails extends Planeta {
 	{
 		this.grade = grade;
 		this.nome = "Ruby on Rails";
-		this.velocidade = 2;
+		this.velocidade = 1;
 		this.numeroDeOrbita = 3;
 		this.numeroDeTrajetoria = 8*3;
 		this.posicaoQuadrangular = 3;

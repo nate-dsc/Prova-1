@@ -7,6 +7,7 @@ public abstract class Planeta extends Astro {
 	protected int numeroDeTrajetoria;
 	protected int posicaoQuadrangular;
 	protected int unidadesAndadas = 0;
+	protected int unidadesAndadasTotal = 0;
 	protected int numeroDeVoltas = 0;
 	
 	protected float horasPorInstante;
@@ -31,8 +32,9 @@ public abstract class Planeta extends Astro {
 		if(this.existe())
 		{
 			this.grade.limpar(this.coord);
-			this.unidadesAndadas += tempo*this.velocidade;
-			this.numeroDeVoltas = this.unidadesAndadas/this.numeroDeTrajetoria;
+			this.unidadesAndadas = tempo*this.velocidade;
+			this.unidadesAndadasTotal += this.unidadesAndadas;
+			this.numeroDeVoltas = this.unidadesAndadasTotal/this.numeroDeTrajetoria;
 			this.posicaoQuadrangular = (this.posicaoQuadrangular + this.unidadesAndadas)%this.numeroDeTrajetoria;
 			this.quadrangularParaCoordenada();
 			this.grade.reinvidicar(this);
@@ -81,7 +83,7 @@ public abstract class Planeta extends Astro {
  	public void atualizarVelocidadeMedia(int tempoTotal)
 	{
 		if(tempoTotal != 0)
-			this.velocidadeMedia = ((float)this.unidadesAndadas)/((float)tempoTotal);
+			this.velocidadeMedia = ((float)this.unidadesAndadasTotal)/((float)tempoTotal);
 		else
 			this.velocidadeMedia = 0;
 	}
@@ -125,7 +127,7 @@ public abstract class Planeta extends Astro {
 		System.out.printf("Horas totais: %.1f horas (%.2f dias de 24h)%n", this.horasTotais, this.diasTotais);
 		System.out.printf("Horas passadas na ultima rodada: %.1f horas (%.2f dias de 24h)%n", this.horasPassadas, this.diasPassados);
 		System.out.printf("Anos completos passados: %d anos JavaLar%n", this.numeroDeVoltas);
-		System.out.printf("Anos totais: %.2f anos JavaLar%n", (float)this.unidadesAndadas/this.numeroDeTrajetoria);
+		System.out.printf("Anos totais: %.2f anos JavaLar%n", (float)this.unidadesAndadasTotal/this.numeroDeTrajetoria);
 		System.out.println("");
 	}
 
@@ -140,7 +142,7 @@ public abstract class Planeta extends Astro {
 		System.out.printf("Velocidade de rotacao: %.4f dias/instante%n", this.horasPorInstante/24);
 		System.out.printf("Dias totais: %.2f dias%n", this.diasTotais);
 		System.out.printf("Anos completos passados: %d anos JavaLar%n", this.numeroDeVoltas);
-		System.out.printf("Anos totais: %.2f anos JavaLar%n", (float)this.unidadesAndadas/this.numeroDeTrajetoria);
+		System.out.printf("Anos totais: %.2f anos JavaLar%n", (float)this.unidadesAndadasTotal/this.numeroDeTrajetoria);
 		System.out.println("");
 		this.info();
 		System.out.println("");

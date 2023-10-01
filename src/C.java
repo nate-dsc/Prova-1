@@ -4,7 +4,7 @@ public class C extends Planeta {
 	{
 		this.grade = grade;
 		this.nome = "C";
-		this.velocidade = 10;
+		this.velocidade = 1;
 		this.numeroDeOrbita = 7;
 		this.numeroDeTrajetoria = 8*7;
 		this.posicaoQuadrangular = 7;

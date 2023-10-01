@@ -76,7 +76,8 @@ public class JavaLar {
 		
 	//Escolheu "2. Sair":
 	scan.close();
-		
+	sis.scan.close();
+	
 	System.exit(1);
 
 	}
