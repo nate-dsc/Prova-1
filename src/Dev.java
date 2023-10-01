@@ -1,34 +1,34 @@
 public class Dev extends Astro {
 
 	//Construtor:
-	Dev(Sistema sis)
+	Dev(Grade grade)
 	{
-		this.sis = sis;
+		this.grade = grade;
 		this.coord.aleatoria();
-		while(sis.checar(this.coord) == true)
+		while(grade.checar(this.coord) == true)
 		{
 			this.coord.aleatoria();
 		}
-		this.sis.reinvidicar(this);
-		this.sis.registrarDev();
+		this.grade.reinvidicar(this);
 	}
 	
 	//Metodo para interação com planetas:
 	void checarColisao(Planeta p)
 	{
-		if(this.existe() && p.existe() && this.distanciaEuclidiana(p) == 0)
+		if(this.existe() && p.existe() && this.distanciaEuclidiana2(p) == 0)
 		{
 			p.aumentarVelocidade();
 			p.registrarColisaoDev();
 			this.destruir();
-			System.out.println("Um dev pousou no planeta " + p.nome + "!");
+			System.out.println("\033[42;1m + \033[0m Um dev pousou no planeta " + p.nome + "!");
+			p.grade.reinvidicar(p);
 		}
 	}
 	
-	//Metodo para passar o tipo ao sistema:
+	//Metodo para passar o tipo a grade:
 	public char tipo()
 	{
-		return 'D';
+		return '+';
 	}
 	
 }

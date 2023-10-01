@@ -1,7 +1,8 @@
 public class CMaisMais extends Planeta {
 
-	CMaisMais(Sistema sis)
+	CMaisMais(Grade grade)
 	{
+		this.grade = grade;
 		this.nome = "C++";
 		this.velocidade = 2;
 		this.numeroDeOrbita = 6;
@@ -10,15 +11,15 @@ public class CMaisMais extends Planeta {
 		this.numeroDeVoltas = 0;
 		this.horasPorInstante = 0.5f;
 		this.quadrangularParaCoordenada();
-		this.sis = sis;
-		this.sis.reinvidicar(this);
+		this.grade.reinvidicar(this);
 	}
 	
 	public void info()
 	{
-		System.out.println("Sobre: C++ e uma linguagem orientada objeto originada do C.");
-		System.out.println("C++ tenta ser uma evolucao do C, por isso o \"++\".");
-		System.out.println("Assim como C, C++ e conhecida por sua performance e \"proximidade ao hardware\".");
-		System.out.println("Isso torna C++ ideal para desenvolvimento de OS e jogos.");
+		System.out.println("\033[38;5;213mSobre: C++ eh uma linguagem multiparadigma.\n"
+				+ "C++ comecou como uma extensao do C ate virar sua propria linguagem.\n"
+				+ "C++ eh muito utilizada por conta do seu acesso a memoria, ao estilo do C.\n"
+				+ "Diferente do C, C++ permite a orientacao a objetos.\n"
+				+ "Assim, C++ tambem eh usada para aplicacoes como jogos e sistemas operacionais\033[0m");
 	}
 }

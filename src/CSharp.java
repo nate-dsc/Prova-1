@@ -1,25 +1,25 @@
 public class CSharp extends Planeta {
 
-	CSharp(Sistema sis)
+	CSharp(Grade grade)
 	{
+		this.grade = grade;
 		this.nome = "C#";
-		this.velocidade = 2;
+		this.velocidade = 1;
 		this.numeroDeOrbita = 5;
 		this.numeroDeTrajetoria = 8*5;
 		this.posicaoQuadrangular = 5;
 		this.numeroDeVoltas = 0;
 		this.horasPorInstante = 4;
 		this.quadrangularParaCoordenada();
-		this.sis = sis;
-		this.sis.reinvidicar(this);
+		this.grade.reinvidicar(this);
 	}
 	
 	public void info()
 	{
-		System.out.println("Sobre: C# foi criada pela Microsoft para ser uma linguagem OO de alto nivel.");
-		System.out.println("Por isso C# e muito comparada ao Java.");
-		System.out.println("Apesar disso, C# e tecnicamente multiparadigma.");
-		System.out.println("Mesmo sendo de alto nivel, C# permite acessar a memoria com ponteiros.");
-		System.out.println("Atualmente, C# não e mais uma \"copia\" do Java e tem funcionalidades interessantes.");
+		System.out.println("\033[38;5;213mSobre: C# foi criada pela Microsoft para ser uma linguagem OO de alto nivel.\n"
+				+ "Inicialmente, C# foi muito comparada ao Java, como uma copia inferior.\n"
+				+ "Apesar disso, C# persistiu e foi evoluindo ao longo dos anos.\n"
+				+ "Mesmo sendo de alto nivel, C# permite acessar a memoria como seus irmaos C e C++.\n"
+				+ "Ainda sim, C# nao eh tao popular quanto seus irmaos.\033[0m");
 	}
 }

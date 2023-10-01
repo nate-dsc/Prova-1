@@ -17,48 +17,34 @@ public class Coord {
 		this.y = y;
 	}
 	
-	void setX(int x)
+	public void setX(int x)
 	{
 		this.x = x;
 	}
 	
-	void setY(int y)
+	public void setY(int y)
 	{
 		this.y = y;
 	}
 	
-	int getX()
+	public int getX()
 	{
 		return this.x;
 	}
 	
-	int getY()
+	public int getY()
 	{
 		return this.y;
 	}
 	
-	boolean igual(Coord outro)
-	{
-		if(this.x == outro.x && this.y == outro.y)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
-	void aleatoria()
+	public void aleatoria()
 	{
 		Random rnd = new Random();
-		this.setCoord(rnd.nextInt(1, 15), rnd.nextInt(1, 15));
+		this.setCoord(rnd.nextInt(1, 16), rnd.nextInt(1, 16));
 	}
 	
-	void mostrarCoord()
+	public void mostrarCoord()
 	{
-		System.out.println("(" + this.x + ", " + this.y + ")");
+		System.out.print("(" + this.x + ", " + this.y + ") ");
 	}
-	
-	
 }

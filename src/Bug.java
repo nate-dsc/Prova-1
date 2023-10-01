@@ -1,47 +1,39 @@
 public class Bug extends Astro {
 
 	//Construtor:
-	Bug(Sistema sis)
+	Bug(Grade grade)
 	{
-		this.sis = sis;
+		this.grade = grade;
 		this.coord.aleatoria();
-		while(sis.checar(this.coord) == true)
+		while(grade.checar(this.coord) == true)
 		{
 			this.coord.aleatoria();
 		}
-		this.sis.reinvidicar(this);
-		this.sis.registrarBug();
-	}
-	
-	Bug(Sistema sis, int x, int y)
-	{
-		this.sis = sis;
-		this.coord.setCoord(x, y);
-		this.sis.reinvidicar(this);
+		this.grade.reinvidicar(this);
 	}
 	
 	//Metodo para interação com planetas:
 	public void checarColisao(Planeta p)
 	{
-		if(this.existe() && p.existe() && this.distanciaEuclidiana(p) == 0)
+		if(this.existe() && p.existe() && this.distanciaEuclidiana2(p) == 0)
 		{
 				p.diminuirVelocidade();
 				p.registrarColisaoBug();
 				this.destruir();
-				System.out.println("Um bug atingiu o planeta " + p.nome + "!");
-				p.sis.reinvidicar(p);
+				System.out.println("\033[41;1m - \033[0m Um bug atingiu o planeta " + p.nome + "!");
+				p.grade.reinvidicar(p);
 		}
 		if(p.velocidade == 0 && p.existe())
 		{
 			p.destruir();
-			System.out.println("O planeta " + p.nome + " foi destruido!");
+			System.out.println("\033[41;1m >  O planeta " + p.nome + " foi destruido!\033[0m");
 		}
 	}
 	
-	//Metodo para passar o tipo ao sistema:
+	//Metodo para passar o tipo a grade:
 	public char tipo()
 	{
-		return 'B';
+		return '-';
 	}
 
 }

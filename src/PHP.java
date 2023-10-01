@@ -1,7 +1,8 @@
 public class PHP extends Planeta {
 
-	PHP(Sistema sis)
+	PHP(Grade grade)
 	{
+		this.grade = grade;
 		this.nome = "PHP";
 		this.velocidade = 2;
 		this.numeroDeOrbita = 4;
@@ -10,7 +11,15 @@ public class PHP extends Planeta {
 		this.numeroDeVoltas = 0;
 		this.horasPorInstante = 60;
 		this.quadrangularParaCoordenada();
-		this.sis = sis;
-		this.sis.reinvidicar(this);
+		this.grade.reinvidicar(this);
+	}
+	
+	public void info()
+	{
+		System.out.println("\033[38;5;213mSobre: PHP eh uma linguagem de scripting lancada em 1995.\n"
+				+ "Como JavaScript, por ser uma linguagem de scripting, PHP eh focado no desenvolvimento web.\n"
+				+ "O mascote do PHP eh um elePHPant (elefante).\n"
+				+ "Mas o PHP nao para apenas na web.\n"
+				+ "A linguagem ja foi usada para criar GUIs avulsas e ate mesmo controlar drones.\033[0m");
 	}
 }

@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JavaLar {
@@ -6,116 +5,79 @@ public class JavaLar {
 	public static void main(String[] args) {
 		
 		//Declarações:
-		
 		Scanner scan = new Scanner(System.in);
-		
+
 		Sistema sis = new Sistema();
 		
-		ArrayList <Planeta> planetaList = new ArrayList<Planeta>();
+		//Opções do menu:
+		int op1 = 0;
+		int op2 = 0;
 		
-		Planeta C = new C(sis);
-		planetaList.add(C);
-		Planeta CMaisMais = new CMaisMais(sis);
-		planetaList.add(CMaisMais);
-		Planeta CSharp = new CSharp(sis);
-		planetaList.add(CSharp);
-		Planeta PHP = new PHP(sis);
-		planetaList.add(PHP);
-		Planeta RubyonRails = new RubyonRails(sis);
-		planetaList.add(RubyonRails);
-		Planeta JavaScript = new JavaScript(sis);
-		planetaList.add(JavaScript);
-		Planeta Python = new Python(sis);
-		planetaList.add(Python);
-		
-		ArrayList <Bug> bugList = new ArrayList<Bug>();
-		
-		ArrayList <Dev> devList = new ArrayList<Dev>();
-		
-//		Bug bugT1 = new Bug(sis, 7, 8);
-//		Bug bugT2 = new Bug(sis, 8, 7);
-//		
-//		bugList.add(bugT1);
-//		bugList.add(bugT2);
-		
-		//Loop de execução:
-		
-		char op = 'n';
-		while(op != 's' || op != 'S')
+		//Loop de execução do menu:
+		do
 		{
-			int qtdBugs = 0;
-			System.out.println("Numero de bugs: ");
-			qtdBugs = scan.nextInt();
+			System.out.println("");
+			System.out.println("\033[38;5;208m		########   ####   ##    ##   ####  \033[0m\033[48;5;208m\033[1m ####     ####   ######  \033[0m");
+			System.out.println("\033[38;5;208m		   ##     ##  ##   ##  ##   ##  ## \033[0m\033[48;5;208m\033[1m  ##     ##  ##   ##  ## \033[0m");
+			System.out.println("\033[38;5;208m		   ##     ##__##   ##  ##   ##__## \033[0m\033[48;5;208m\033[1m  ##     ##__##   ##__## \033[0m");
+			System.out.println("\033[38;5;208m		#  ##     ##^^##    ####    ##^^## \033[0m\033[48;5;208m\033[1m  ##  #  ##^^##   ##^^#  \033[0m");
+			System.out.println("\033[38;5;208m		 ###      ##  ##     ##     ##  ## \033[0m\033[48;5;208m\033[1m ######  ##  ##   ##  ## \033[0m");
+			System.out.println("");
+			System.out.println("Bem vindo ao sistema JavaLar!");
+			System.out.println("1. Iniciar/Retornar");
+			System.out.println("\u001b[41;1m2. Sair\033[0m");
+			op1 = scan.nextInt();
 			
-			for(int i = 0; i < qtdBugs; i++)
+			//Escolheu "1. Iniciar/Retornar":
+			if(op1 == 1)
 			{
-				Bug bug = new Bug(sis);
-				bug.coord.mostrarCoord();
-				bugList.add(bug);	
-			}
-			
-			int qtdDevs = 0;
-			System.out.println("Numero de devs: ");
-			qtdDevs = scan.nextInt();
-			
-			for(int i = 0; i < qtdDevs; i++)
-			{
-				Dev dev = new Dev(sis);
-				dev.coord.mostrarCoord();
-				devList.add(dev);
-			}
-			
-			int tempo = 5;
-			System.out.println("Tempo: ");
-			tempo = scan.nextInt();
-			sis.registrarTempo(tempo);
-			
-			sis.registrarRodada();
-			
-			for(Planeta p : planetaList)
-			{
-				p.translacao();
-				p.rotacao();
-				p.coord.mostrarCoord();
-				System.out.println(sis.checar(p.coord));
-			}
-			
-			for(Bug b : bugList)
-			{
-				for(Planeta p : planetaList)
+				do
 				{
-					b.checarColisao(p);
-				}
-			}
-			
-			for(Dev d : devList)
-			{
-				for(Planeta p : planetaList)
-				{
-					d.checarColisao(p);
-				}
-			}
-			
-			sis.mostrarOcupacao();
-			
-			System.out.println("Numero de planetas ao norte de Java: " + sis.qtdNorte());
-			System.out.println("Numero de planetas no equador de Java: " + sis.qtdEquador());
-			System.out.println("Numero de planetas ao sul de Java: " + sis.qtdSul());
-			
-			for(Planeta p : planetaList)
-			{
-				p.mostrarDados();
-			}
-			
-			
-			
-			System.out.println("Deseja sair? S/N");
-			op = scan.next().charAt(0);
-			
+				//Entrada de dados:
+				System.out.println("\033[33;1m=== RODADA No " + (sis.getNumeroDeRodadas()+1) + " ===\033[0m");
+				sis.criarBugs();
+				sis.criarDevs();
+				sis.pedirTempo();
+				
+				//Execução:
+				sis.executarRodada();
+				
+				//Resultados:
+				sis.mostrarGrade();
+				sis.areaPlanetas();
+				sis.mostrarAlinhamentos();
+				sis.mostrarDistancias();
+				sis.mostrarDadosPlanetas();
+				sis.mostrarDadosAteAgora();
+				
+				//Registrar o fim da rodada:
+				sis.registrarRodada();
+				
+					//Saída:
+					do
+					{
+						System.out.println("");
+						System.out.println("Retornar ao menu inicial?");
+						System.out.println("    \033[42;1m1. Continuar\033[0m | \033[41;1m2. Sair\033[0m");
+						op2 = scan.nextInt();
+						if(op2 != 1 && op2 != 2)
+						{
+							System.out.println("Opcao invalida. Tente novamente.");
+						}
+					}while(op2 != 1 && op2 != 2);
+					
+				}while(op2 != 2);
+				
+				//Relatorio completo:
+				sis.mostrarDadosFinais();
 		}
+			
+	}while(op1 != 2);
 		
-		scan.close();
+	//Escolheu "2. Sair":
+	scan.close();
+		
+	System.exit(1);
 
 	}
-	
 }
