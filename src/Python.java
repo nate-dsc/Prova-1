@@ -4,7 +4,7 @@ public class Python extends Planeta {
 	{
 		this.grade = grade;
 		this.nome = "Python";
-		this.velocidade = 1;
+		this.velocidade = 4;
 		this.numeroDeOrbita = 1;
 		this.numeroDeTrajetoria = 8*1;
 		this.posicaoQuadrangular = 1;

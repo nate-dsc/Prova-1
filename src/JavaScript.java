@@ -4,7 +4,7 @@ public class JavaScript extends Planeta {
 	{
 		this.grade = grade;
 		this.nome = "JavaScript";
-		this.velocidade = 1;
+		this.velocidade = 3;
 		this.numeroDeOrbita = 2;
 		this.numeroDeTrajetoria = 8*2;
 		this.posicaoQuadrangular = 2;
