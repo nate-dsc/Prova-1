@@ -218,15 +218,18 @@ public class Sistema {
 		{
 			for(int j = indice + 1; j < planetaList.size(); j++)
 			{
-				System.out.println("Distancia Euclidiana^2 entre " + planetaList.get(indice).getNome() + " e "
-									+ planetaList.get(j).getNome() + ": "
-									+ planetaList.get(indice).distanciaEuclidiana2(planetaList.get(j))
-									+ " unidades^2");
-				System.out.println("Distancia Fischer entre " + planetaList.get(indice).getNome() + " e "
-									+ planetaList.get(j).getNome() + ": "
-									+ planetaList.get(indice).distanciaFischer(planetaList.get(j))
-									+ " unidades^2");
-				System.out.println("");
+				if(planetaList.get(indice).existe() && planetaList.get(j).existe())
+				{
+					System.out.println("Distancia Euclidiana^2 entre " + planetaList.get(indice).getNome() + " e "
+										+ planetaList.get(j).getNome() + ": "
+										+ planetaList.get(indice).distanciaEuclidiana2(planetaList.get(j))
+										+ " unidades^2");
+					System.out.println("Distancia Fischer entre " + planetaList.get(indice).getNome() + " e "
+										+ planetaList.get(j).getNome() + ": "
+										+ planetaList.get(indice).distanciaFischer(planetaList.get(j))
+										+ " unidades^2");
+					System.out.println("");
+				}
 			}
 		}
 	}
